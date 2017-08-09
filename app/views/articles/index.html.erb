@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class= "col-md-offset-4 col-md-4 text-center">
+
+      <p class="title">Articles</p>
+
+      <%= link_to "Create new article", new_article_path, class: "btn btn-primary" %>
+
+      <ul>
+        <% @articles.each do |article| %>
+          <li>
+            <%= link_to article.title, article_path(article), class: "text-margin" %>
+            <br>
+            <%= link_to "Update", edit_article_path(article), class: "btn btn-success" %>
+            <%= link_to "Delete", article_path(article), :method => :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
